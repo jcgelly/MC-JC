@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Marie-Charline & Jean-Christophe</title>
+    
+    <!-- Google Fonts: Cormorant Garamond (Sérif élégant) & Lato (Sans-serif lisible) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (Configuration via script pour la personnalisation) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sage': '#8A9A5B',       // Vert Sauge principal
+                        'sage-light': '#E3E8E1', // Vert très clair pour les fonds
+                        'blush': '#E8CDC9',      // Rose Poudré
+                        'blush-light': '#F9F3F2',// Rose très clair
+                        'paper': '#FDFBF7',      // Blanc Crème / Papier texturé
+                        'charcoal': '#4A4A4A',   // Gris anthracite doux pour le texte
+                        'gold': '#C5A059',       // Touche dorée discrète
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Styles personnalisés pour l'ambiance "Papier" et les détails */
+        body {
+            background-color: #FDFBF7;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* Texture papier subtile */
+            color: #4A4A4A;
+        }
+        
+        .romantic-title {
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
+        /* Effet aquarelle sur les images (bords doux) */
+        .watercolor-border {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: all 1s ease-in-out;
+        }
+        .watercolor-border:hover {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+
+        /* Animation douce au chargement */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-sage selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-paper/90 backdrop-blur-sm border-b border-sage/20 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-serif text-2xl text-sage italic font-semibold">MC & JC</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#histoire" class="text-charcoal hover:text-sage transition font-serif text-lg italic">Notre Histoire</a>
+                    <a href="#programme" class="text-charcoal hover:text-sage transition font-serif text-lg italic">Le Programme</a>
+                    <a href="#chateau" class="text-charcoal hover:text-sage transition font-serif text-lg italic">Le Château</a>
+                    <a href="#lieux" class="text-charcoal hover:text-sage transition font-serif text-lg italic">Infos Pratiques</a>
+                </div>
+                <!-- Mobile menu button (Hamburger) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-charcoal hover:text-sage focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paper border-b border-sage/20">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#histoire" class="block px-3 py-2 text-charcoal hover:text-sage font-serif italic text-xl">Notre Histoire</a>
+                <a href="#programme" class="block px-3 py-2 text-charcoal hover:text-sage font-serif italic text-xl">Le Programme</a>
+                <a href="#chateau" class="block px-3 py-2 text-charcoal hover:text-sage font-serif italic text-xl">Le Château</a>
+                <a href="#lieux" class="block px-3 py-2 text-charcoal hover:text-sage font-serif italic text-xl">Infos Pratiques</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Image de fond avec filtre -->
+        <div class="absolute inset-0 z-0">
+            <!-- Image d'un jardin château floue et lumineuse -->
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Jardin Château" 
+                 class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-white/20"></div> <!-- Voile léger -->
+        </div>
+
+        <div class="relative z-10 text-center px-4 fade-in-up">
+            <p class="font-serif text-xl md:text-2xl text-charcoal mb-4 tracking-widest uppercase">Deux chercheurs se sont trouvés</p>
+            <h1 class="font-serif text-5xl md:text-7xl text-charcoal mb-6 romantic-title">
+                Marie-Charline <span class="text-sage text-4xl md:text-6xl align-middle">&</span> Jean-Christophe
+            </h1>
+            <div class="flex items-center justify-center space-x-4 mb-8">
+                <div class="h-[1px] w-12 bg-charcoal"></div>
+                <p class="font-serif text-2xl md:text-3xl text-charcoal italic">30 Mai 2026</p>
+                <div class="h-[1px] w-12 bg-charcoal"></div>
+            </div>
+            <a href="#programme" class="inline-block border border-charcoal text-charcoal hover:bg-sage hover:text-white hover:border-sage transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
+                Découvrir le Programme
+            </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-charcoal opacity-70">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Section Notre Histoire (Romantisme Littéraire) -->
+    <section id="histoire" class="py-20 md:py-32 bg-paper relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Image Couple style "Médaillon/Organique" -->
+                <div class="order-2 md:order-1 relative flex justify-center">
+                    <div class="relative w-80 h-96 md:w-96 md:h-[500px]">
+                        <div class="absolute inset-0 bg-sage opacity-20 rounded-full blur-2xl transform -translate-x-4 translate-y-4"></div>
+                        <img src="https://images.unsplash.com/photo-1623838241772-277579c4a524?q=80&w=800&auto=format&fit=crop" 
+                             alt="Le Couple" 
+                             class="w-full h-full object-cover shadow-xl watercolor-border relative z-10 grayscale-[10%] hover:grayscale-0 transition duration-700">
+                    </div>
+                </div>
+                
+                <!-- Texte Littéraire -->
+                <div class="order-1 md:order-2 text-center md:text-left">
+                    <span class="text-sage uppercase tracking-widest text-sm font-bold mb-2 block">Chapitre Premier</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-charcoal mb-6 italic">Notre Histoire</h2>
+                    <p class="text-lg md:text-xl text-gray-600 mb-6 font-light leading-relaxed">
+                        "C'était un après-midi de printemps, où la lumière semblait suspendre le temps..."
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Notre rencontre n'était pas un hasard, mais une évidence. Depuis ce jour dans le jardin du Luxembourg, nous écrivons ensemble les pages de notre vie. Aujourd'hui, nous sommes heureux de vous inviter à célébrer le début de notre plus beau chapitre au cœur de la Franche-Comté.
+                    </p>
+                    <div class="flex justify-center md:justify-start">
+                        <img src="https://img.icons8.com/ios/50/8A9A5B/rose.png" alt="Rose" class="w-8 h-8 opacity-80">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Séparateur Floral (Imaginaire) -->
+    <div class="h-24 w-full flex justify-center items-center bg-paper overflow-hidden">
+        <div class="w-full max-w-lg h-[1px] bg-gradient-to-r from-transparent via-sage to-transparent opacity-50"></div>
+    </div>
+
+    <!-- Section Programme (Timeline Verticale) -->
+    <section id="programme" class="py-20 bg-sage-light/30">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-sage uppercase tracking-widest text-sm font-bold">Le Jour J</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal italic mt-2">Le Programme</h2>
+            </div>
+
+            <div class="relative">
+                <!-- Ligne verticale centrale -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-sage opacity-30"></div>
+
+                <!-- Samedi - Événement 1 (Cérémonie Religieuse) -->
+                <div class="relative mb-12 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12 text-right pr-8 hidden md:block">
+                        <h3 class="font-serif text-2xl text-charcoal">Cérémonie Religieuse</h3>
+                        <p class="text-gray-500 italic">Église de Belvoir</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-paper shadow-md w-12 h-12 rounded-full justify-center text-sage border border-sage/20 mx-auto md:mx-0 absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div class="order-1 w-5/12 pl-8 md:pl-8 text-center md:text-left pt-16 md:pt-0">
+                        <span class="font-serif text-3xl text-sage font-bold">15:00</span>
+                        <div class="md:hidden mt-2">
+                            <h3 class="font-serif text-xl text-charcoal">Cérémonie Religieuse</h3>
+                            <p class="text-sm text-gray-500 italic">Église de Belvoir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Samedi - Événement 2 (Vin d'Honneur) -->
+                <div class="relative mb-12 flex justify-between items-center w-full flex-row-reverse md:flex-row">
+                    <div class="order-1 w-5/12 text-right pr-8 hidden md:block">
+                        <span class="font-serif text-3xl text-sage font-bold">17:30</span>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-paper shadow-md w-12 h-12 rounded-full justify-center text-sage border border-sage/20 mx-auto md:mx-0 absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <div class="order-1 w-5/12 pl-8 md:pl-8 text-center md:text-left pt-16 md:pt-0">
+                        <h3 class="font-serif text-2xl text-charcoal hidden md:block">Vin d'Honneur</h3>
+                        <p class="text-gray-500 italic hidden md:block">Cour du Château de Belvoir</p>
+                        <div class="md:hidden mt-2">
+                             <span class="font-serif text-3xl text-sage font-bold block mb-1">17:30</span>
+                            <h3 class="font-serif text-xl text-charcoal">Vin d'Honneur</h3>
+                            <p class="text-sm text-gray-500 italic">Cour du Château de Belvoir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Samedi - Événement 3 (Dîner) -->
+                <div class="relative mb-24 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12 text-right pr-8 hidden md:block">
+                        <h3 class="font-serif text-2xl text-charcoal">Dîner de Gala</h3>
+                        <p class="text-gray-500 italic">Salle d'Honneur du Château</p>
+                         <p class="text-xs text-gray-400 mt-2 font-serif italic">"Sous les voûtes séculaires, un festin royal pour célébrer l'amour et l'amitié."</p>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-paper shadow-md w-12 h-12 rounded-full justify-center text-sage border border-sage/20 mx-auto md:mx-0 absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="order-1 w-5/12 pl-8 md:pl-8 text-center md:text-left pt-16 md:pt-0">
+                        <span class="font-serif text-3xl text-sage font-bold">20:00</span>
+                        <div class="md:hidden mt-2">
+                            <h3 class="font-serif text-xl text-charcoal">Dîner de Gala</h3>
+                            <p class="text-sm text-gray-500 italic">Salle d'Honneur du Château</p>
+                             <p class="text-xs text-gray-400 mt-2 font-serif italic">"Sous les voûtes séculaires, un festin royal."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Séparateur Jour Suivant -->
+                <div class="relative mb-12 text-center z-10">
+                     <span class="bg-sage-light px-4 py-1 rounded-full text-sage font-serif font-bold italic border border-sage/30">Dimanche 31 Mai</span>
+                </div>
+
+                 <!-- Dimanche - Brunch & Visite -->
+                 <div class="relative flex justify-between items-center w-full flex-row-reverse md:flex-row">
+                    <div class="order-1 w-5/12 text-right pr-8 hidden md:block">
+                        <span class="font-serif text-3xl text-sage font-bold">11:00</span>
+                    </div>
+                    <div class="z-20 flex items-center order-1 bg-paper shadow-md w-12 h-12 rounded-full justify-center text-sage border border-sage/20 mx-auto md:mx-0 absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="order-1 w-5/12 pl-8 md:pl-8 text-center md:text-left pt-16 md:pt-0">
+                        <h3 class="font-serif text-2xl text-charcoal hidden md:block">Brunch & Visite Historique</h3>
+                        <p class="text-gray-500 italic hidden md:block">Cour du Château</p>
+                        <p class="text-xs text-gray-400 mt-2 font-serif italic hidden md:block">Un réveil en douceur suivi d'une visite privée pour découvrir les secrets du Château.</p>
+                        <div class="md:hidden mt-2">
+                             <span class="font-serif text-3xl text-sage font-bold block mb-1">11:00</span>
+                            <h3 class="font-serif text-xl text-charcoal">Brunch & Visite</h3>
+                            <p class="text-sm text-gray-500 italic">Cour du Château</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Nouvelle Section : Le Château -->
+    <section id="chateau" class="relative py-24 bg-charcoal text-white overflow-hidden">
+        <!-- Image de fond du château -->
+        <div class="absolute inset-0 z-0">
+             <img src="https://images.unsplash.com/photo-1599577749062-811c76575971?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Château de Belvoir" 
+                 class="w-full h-full object-cover opacity-30">
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <span class="text-gold uppercase tracking-widest text-sm font-bold mb-4 block">Le Lieu de Réception</span>
+            <h2 class="font-serif text-4xl md:text-6xl text-white mb-8 italic">Le Château de Belvoir</h2>
+            <div class="w-24 h-[1px] bg-gold mx-auto mb-8"></div>
+            <p class="font-serif text-xl md:text-2xl font-light leading-relaxed mb-8">
+                "Perché sur son éperon rocheux, dominant les vallons de Franche-Comté, ce joyau du XIIe siècle sera l'écrin de notre union."
+            </p>
+            <p class="text-gray-300 mb-10 leading-relaxed font-light">
+                Nous avons choisi ce lieu chargé d'histoire pour son atmosphère unique, mêlant puissance médiévale et romantisme intemporel. 
+                De la cour d'honneur où nous partagerons le vin d'honneur, à la majestueuse salle des gardes pour notre dîner, 
+                chaque pierre de ce château racontera une partie de notre histoire.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20">
+                    <i class="fas fa-camera-retro text-gold text-2xl mb-4"></i>
+                    <h3 class="font-serif text-xl mb-2">Cadre Photogénique</h3>
+                    <p class="text-sm text-gray-300">Des jardins suspendus et des remparts offrant une vue imprenable.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20">
+                    <i class="fas fa-history text-gold text-2xl mb-4"></i>
+                    <h3 class="font-serif text-xl mb-2">Âme Historique</h3>
+                    <p class="text-sm text-gray-300">Une immersion authentique dans l'histoire comtoise.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded border border-white/20">
+                    <i class="fas fa-moon text-gold text-2xl mb-4"></i>
+                    <h3 class="font-serif text-xl mb-2">Soirée Enchantée</h3>
+                    <p class="text-sm text-gray-300">Un éclairage aux chandelles pour une ambiance féerique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Infos Pratiques (Cartes Élégantes) -->
+    <section id="lieux" class="py-20 bg-paper">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-sage uppercase tracking-widest text-sm font-bold">Adresses & Accès</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal italic mt-2">Infos Pratiques</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Lieu 1 -->
+                <div class="bg-white p-6 shadow-lg border-t-4 border-sage rounded-sm hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden mb-6 relative">
+                         <!-- Placeholder Mairie/Eglise -->
+                        <img src="https://images.unsplash.com/photo-1548625361-1e2df8072186?q=80&w=800&auto=format&fit=crop" alt="Église de Belvoir" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal mb-2">La Cérémonie</h3>
+                    <p class="text-gray-600 mb-1 font-semibold">Église de Belvoir</p>
+                    <p class="text-gray-500 mb-6 italic">25430 Belvoir</p>
+                    <a href="https://maps.google.com/?q=Église+de+Belvoir+25430" target="_blank" class="text-sage font-bold uppercase text-sm tracking-widest hover:text-charcoal transition border-b border-sage pb-1">
+                        Voir sur la carte
+                    </a>
+                </div>
+
+                <!-- Lieu 2 -->
+                <div class="bg-white p-6 shadow-lg border-t-4 border-blush rounded-sm hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden mb-6 relative">
+                        <!-- Placeholder Réception -->
+                        <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800&auto=format&fit=crop" alt="Château de Belvoir" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl text-charcoal mb-2">La Réception</h3>
+                    <p class="text-gray-600 mb-1 font-semibold">Château de Belvoir</p>
+                    <p class="text-gray-500 mb-6 italic">1 Rue du Château, 25430 Belvoir</p>
+                    <a href="https://maps.google.com/?q=Château+de+Belvoir+25430" target="_blank" class="text-blush font-bold uppercase text-sm tracking-widest hover:text-charcoal transition border-b border-blush pb-1">
+                        Voir sur la carte
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12 border-t-4 border-gold">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl mb-6 italic">Marie-Charline & Jean-Christophe</h2>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fas fa-envelope fa-lg"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fas fa-phone fa-lg"></i></a>
+            </div>
+            <p class="text-gray-500 font-serif text-sm italic">Fait avec Amour • 2026</p>
+        </div>
+    </footer>
+
+    <!-- Script Menu Mobile -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Fermer le menu au clic d'un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
