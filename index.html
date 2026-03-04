@@ -23,6 +23,7 @@
                         'sage': '#8A9A5B',       // Vert Sauge principal
                         'sage-light': '#E3E8E1', // Vert très clair pour les fonds
                         'blush': '#E8CDC9',      // Rose Poudré
+                        'blush-dark': '#C4908A', // Rose plus foncé pour texte
                         'blush-light': '#F9F3F2',// Rose très clair
                         'paper': '#FDFBF7',      // Blanc Crème / Papier texturé
                         'charcoal': '#4A4A4A',   // Gris anthracite doux pour le texte
@@ -343,14 +344,14 @@
                 <p class="font-serif text-2xl md:text-3xl text-charcoal italic">30 Mai 2026</p>
                 <div class="h-[1px] w-12 bg-charcoal"></div>
             </div>
-            <a href="#programme" class="inline-block border border-blush text-blush hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
+            <a href="#programme" class="inline-block border border-blush-dark text-blush-dark hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
                 Découvrir le Programme
             </a>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
-                <a href="#lieux" class="inline-block border border-blush text-blush hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
+                <a href="#lieux" class="inline-block border border-blush-dark text-blush-dark hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
                     Informations Pratiques
                 </a>
-                <a href="#cagnotte" class="inline-block border border-blush text-blush hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
+                <a href="#cagnotte" class="inline-block border border-blush-dark text-blush-dark hover:bg-blush hover:text-paper hover:border-blush transition-all duration-300 px-8 py-3 rounded-sm font-serif text-lg tracking-wide uppercase">
                     Cagnotte
                 </a>
             </div>
@@ -905,8 +906,10 @@
         </div>
     </section>
 
-    <!-- Dégradé Covoiturage → Cagnotte -->
-    <div class="h-24" style="background: linear-gradient(to bottom, #E3E8E1, #E8CDC9);"></div>
+    <!-- Séparateur Rose + Dégradé Covoiturage → Cagnotte -->
+    <div class="w-full flex justify-center items-center py-6" style="background: linear-gradient(to bottom, #E3E8E1, rgba(232,205,201,0.4));">
+        <img src="images/Rose.png" alt="" class="w-16 md:w-20 opacity-80">
+    </div>
 
     <!-- Cagnotte Leetchi -->
     <section id="cagnotte" class="py-20 bg-blush/40">
@@ -986,16 +989,11 @@
     </section>
 
     <!-- Chats observateurs -->
-    <div class="relative w-full" style="background: linear-gradient(to bottom, rgba(227,232,225,0.2), rgba(227,232,225,0.2));">
+    <div class="relative w-full" style="background: linear-gradient(to bottom, rgba(227,232,225,0.2), #E3E8E1);">
         <div class="max-w-6xl mx-auto px-4 relative">
             <img src="images/chats_galerie.png" alt="Nos chats admirent la galerie" 
                  class="w-28 md:w-36 -mt-14 ml-2 md:ml-8 relative z-10 drop-shadow-lg">
         </div>
-    </div>
-
-    <!-- Séparateur Rose -->
-    <div class="w-full flex justify-center items-center py-6" style="background: linear-gradient(to bottom, rgba(227,232,225,0.2), #E3E8E1);">
-        <img src="images/Rose.png" alt="" class="w-16 md:w-20 opacity-80">
     </div>
 
     <!-- Lightbox -->
