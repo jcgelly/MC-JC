@@ -363,6 +363,35 @@
         </div>
     </header>
 
+    <!-- Compte à rebours -->
+    <section class="py-12 md:py-16 bg-paper relative">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <span class="text-blush uppercase tracking-widest text-sm font-bold">Nous comptons les jours</span>
+            <h3 class="font-serif text-2xl md:text-3xl text-charcoal italic mt-2 mb-8">Avant le grand jour</h3>
+            <div id="countdown" class="flex justify-center items-center space-x-6 md:space-x-10">
+                <div class="text-center">
+                    <span id="countdown-days" class="font-serif text-4xl md:text-6xl text-sage font-bold">--</span>
+                    <p class="uppercase tracking-widest text-xs text-charcoal/60 mt-2">Jours</p>
+                </div>
+                <span class="font-serif text-3xl md:text-5xl text-gold/40">·</span>
+                <div class="text-center">
+                    <span id="countdown-hours" class="font-serif text-4xl md:text-6xl text-sage font-bold">--</span>
+                    <p class="uppercase tracking-widest text-xs text-charcoal/60 mt-2">Heures</p>
+                </div>
+                <span class="font-serif text-3xl md:text-5xl text-gold/40">·</span>
+                <div class="text-center">
+                    <span id="countdown-minutes" class="font-serif text-4xl md:text-6xl text-sage font-bold">--</span>
+                    <p class="uppercase tracking-widest text-xs text-charcoal/60 mt-2">Minutes</p>
+                </div>
+                <span class="font-serif text-3xl md:text-5xl text-gold/40">·</span>
+                <div class="text-center">
+                    <span id="countdown-seconds" class="font-serif text-4xl md:text-6xl text-sage font-bold">--</span>
+                    <p class="uppercase tracking-widest text-xs text-charcoal/60 mt-2">Secondes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section Notre Histoire (Romantisme Littéraire) -->
     <section id="histoire" class="py-20 md:py-32 bg-paper relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1172,6 +1201,33 @@
 
         // Initialiser au chargement
         document.addEventListener('DOMContentLoaded', initCarousel);
+    </script>
+
+    <!-- Script Compte à rebours -->
+    <script>
+        function updateCountdown() {
+            const wedding = new Date('2026-05-30T14:30:00').getTime();
+            const now = new Date().getTime();
+            const diff = wedding - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = '<p class="font-serif text-2xl md:text-3xl text-sage italic">Le grand jour est arrivé !</p>';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
